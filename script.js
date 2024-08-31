@@ -38,6 +38,21 @@ const display = document.querySelector("#display");
 
 numberButtons.addEventListener("click", e => {
     if (e.target.tagName == 'BUTTON') {
-    display.textContent += e.target.textContent
+        display.textContent += e.target.textContent;
     };
-})
+
+    if (operator == null) {
+        firstNumber = +display.textContent;
+    } else {
+        secondNumber = +display.textContent;
+    }
+});
+
+const operatorButtons = document.querySelector("#operator-buttons");
+
+operatorButtons.addEventListener("click", e => {
+    if (e.target.tagName == 'BUTTON') {
+        operator = e.target.textContent;
+        display.textContent = '';
+    };
+}, { once: true });
