@@ -16,19 +16,19 @@ function divide(a, b) {
 
 let firstNumber, secondNumber, operator;
 
-function operate() {
+function operate(operator, firstNumber, secondNumber) {
     switch(operator) {
         case "+":
-            add(firstNumber, secondNumber);
+            return add(firstNumber, secondNumber);
             break;
         case "-":
-            subtract(firstNumber, secondNumber);
+            return subtract(firstNumber, secondNumber);
             break;
         case "*":
-            multiply(firstNumber, secondNumber);
+            return multiply(firstNumber, secondNumber);
             break;
         case "/":
-            divide(firstNumber, secondNumber);
+            return divide(firstNumber, secondNumber);
             break;
     }
 }
@@ -55,4 +55,12 @@ operatorButtons.addEventListener("click", e => {
         operator = e.target.textContent;
         display.textContent = '';
     };
-}, { once: true });
+});
+
+const equal = document.querySelector("#equal")
+
+equal.addEventListener("click", (e) => {
+    display.textContent = (operate(operator,firstNumber,secondNumber));
+    firstNumber = +display.textContent;
+    operator = null;
+});
