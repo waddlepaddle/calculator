@@ -38,6 +38,6 @@ const display = document.querySelector("#display");
 
 numberButtons.addEventListener("click", e => {
     if (e.target.tagName == 'BUTTON') {
-    display.textContent = e.target.textContent
+    display.textContent += e.target.textContent
     };
 })
