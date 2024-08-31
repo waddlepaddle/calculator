@@ -32,3 +32,12 @@ function operate() {
             break;
     }
 }
+
+const numberButtons = document.querySelector("#number-buttons");
+const display = document.querySelector("#display");
+
+numberButtons.addEventListener("click", e => {
+    if (e.target.tagName == 'BUTTON') {
+    display.textContent = e.target.textContent
+    };
+})
